@@ -1,0 +1,21 @@
+---
+- name: my webbserver
+  hosts: webservers
+  #gather_facts: False
+
+  vars:
+   - MyMessage: "Welcome to Ansible world!"
+
+  tasks:
+    #- name: Nginx setup
+    #apt: pkg=nginx state=installed update_cache=true
+    - name: Update apt cache and install Nginx
+      apt:
+       name: nginx
+       state: latest
+       update_cache: yes
+    - name: index.html copy
+      template:
+        src: index.html 
+        dest: /var/www/html
+
