@@ -1,5 +1,5 @@
+---
+# vars file for roles/iti_webserver
 server_ip: "{{ ansible_default_ipv4.address }}"
-my_name: yossef
 server_name: "{{ ansible_nodename }}"
-ansible_host: 44.211.185.133
-
+ansible_host: 18.210.6.57
