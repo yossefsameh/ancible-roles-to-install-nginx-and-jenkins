@@ -1,3 +1,5 @@
 server_ip: "{{ ansible_default_ipv4.address }}"
 my_name: yossef
 server_name: "{{ ansible_nodename }}"
+ansible_host: 44.211.185.133
+
