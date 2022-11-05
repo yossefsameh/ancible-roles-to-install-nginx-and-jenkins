@@ -1,5 +1,4 @@
 [webservers]
-18.210.6.57
-
+webserver.example.com
 [jenkins_agents]
-3.238.191.136
+jenkins.example.com
