@@ -5,3 +5,7 @@
     name: java-1.8.0-openjdk-devel
     state: present
     
+- name: dowload jenkins repo in /etc/yum.repos.d/jenkins.repo
+  get_url:
+    url: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+    dest: /etc/yum.repos.d/jenkins.repo
