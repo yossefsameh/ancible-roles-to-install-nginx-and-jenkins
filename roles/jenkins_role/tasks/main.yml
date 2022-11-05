@@ -2,10 +2,25 @@
 # tasks file for roles/jenkins_role
 - name: install jdk
   yum:
-    name: java-1.8.0-openjdk-devel
+    name: java-11-openjdk-devel
     state: present
     
 - name: dowload jenkins repo in /etc/yum.repos.d/jenkins.repo
   get_url:
     url: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
     dest: /etc/yum.repos.d/jenkins.repo
+- name: Import a jenkins key from a url
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+- name: install jenkins
+  yum:
+    name: jenkins 
+    state: present
+
+- name: start and enable jenkins service
+  ansible.builtin.systemd:
+    state: started
+    name: jenkins
+    enabled: yes 
