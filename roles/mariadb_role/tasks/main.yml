@@ -2,7 +2,9 @@
 # tasks file for roles/mariadb_role
 - name: install mariadb
   yum:
-    name: mariadb-server
+    name: 
+     - mariadb-server
+     - python3-PyMySQL
     state: present
 
 - name: start and enable mariadb-server
