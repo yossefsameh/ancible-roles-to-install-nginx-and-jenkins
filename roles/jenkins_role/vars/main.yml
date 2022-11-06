@@ -1,3 +1,3 @@
 ---
 # vars file for roles/jenkins_role
-ansible_host: 34.200.243.22
+#ansible_host: 34.200.243.22

@@ -4,4 +4,25 @@
   yum:
     name: mariadb-server
     state: present
-    
+
+- name: start and enable mariadb-server
+  ansible.builtin.systemd:
+    state: started
+    name: mariadb
+    enabled: true
+
+- name: dowload configuration file for mariadb
+  get_url:
+    url: https://drive.google.com/uc?export=download&id=1QIeumZzk1_PL6pVf699ff8iurEnuwk7y
+    dest: /var/lib/mysql/
+  notify: restart mariadb-server
+
+- name: set root login
+  mysql_user:
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+    user: root
+    check_implicit_admin: true
+    password: "{{ mysql_root_password }}"
+    host: localhost
+
