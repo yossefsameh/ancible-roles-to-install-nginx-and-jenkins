@@ -1,0 +1,7 @@
+---
+# tasks file for roles/mariadb_role
+- name: install mariadb
+  yum:
+    name: mariadb-server
+    state: present
+    
